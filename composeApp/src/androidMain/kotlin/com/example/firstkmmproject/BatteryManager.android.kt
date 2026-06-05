@@ -8,6 +8,7 @@ import kotlin.math.roundToInt
 
 actual class BatteryManager(private val context: Context) {
     actual fun getBatteryLevel(): Int {
+
        val intentFilter = IntentFilter(Intent.ACTION_BATTERY_CHANGED)
         val batteryStatus = context.registerReceiver(null, intentFilter)
         val batteryLevel = batteryStatus?.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) ?: -1
